@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="Lab8.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="400" Width="550">
+
+    <Grid Background="Gray" Width="500" Height="350">
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
+
+            <TextBox x:Name="txtTitle" PlaceholderText="Title" Margin="0,0,0,10"/>
+            <TextBox x:Name="txtArtist" PlaceholderText="Artist" Margin="0,0,0,10"/>
+            <TextBox x:Name="txtAlbum" PlaceholderText="Album" Margin="0,0,0,10"/>
+            <TextBox x:Name="txtYear" PlaceholderText="Year" Margin="0,0,0,10"/>
+            <Button Content="Add Track" Click="AddTrackButton_Click"/>
+            <Button Content="Update Track" Click="UpdateTrackButton_Click"/>
+            <Button Content="Remove Track" Click="RemoveTrackButton_Click"/>
+            <Button Content="Remove All Tracks" Click="RemoveAllTracksButton_Click"/>
+
+
+
+            <ListView x:Name="musicListView" Margin="20,20,20,20" Width="140">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Id}" FontSize="20"/>
+                            <TextBlock Text="{Binding Artist}" FontSize="16"/>
+                            <TextBlock Text="{Binding Album}" FontSize="16"/>
+                            <TextBlock Text="{Binding Year}" FontSize="16"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackPanel>
+    </Grid>
+</Page>
