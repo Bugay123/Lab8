@@ -16,10 +16,11 @@ namespace Lab8.Repo
             {
                 using (var db = new MusicDbContext())
                 {
+                //db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
                  return db.Tracks.ToList();
                 }
             }
-
             public static void AddTrack(MusicTrack track)
             {
                 using (var db = new MusicDbContext())
@@ -28,7 +29,6 @@ namespace Lab8.Repo
                     db.SaveChanges();
                 }
             }
-
             public static void UpdateTrack(MusicTrack track)
             {
                 using (var db = new MusicDbContext())
@@ -37,7 +37,6 @@ namespace Lab8.Repo
                     db.SaveChanges();
                 }
             }
-
             public static void RemoveTrack(MusicTrack track)
             {
                 using (var db = new MusicDbContext())
@@ -46,7 +45,6 @@ namespace Lab8.Repo
                     db.SaveChanges();
                 }
             }
-
             public static void RemoveAllTracks()
             {
                 using (var db = new MusicDbContext())

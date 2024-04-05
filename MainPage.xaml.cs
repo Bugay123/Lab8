@@ -19,7 +19,6 @@ namespace Lab8
         {
             this.InitializeComponent();
             Tracks = new ObservableCollection<MusicTrack>();
-            MigrationService.MigrateDatabase();
             LoadData();
         }
 
@@ -49,12 +48,18 @@ namespace Lab8
         private void UpdateTrackButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedTrack = musicListView.SelectedItem as MusicTrack;
-            if (selectedTrack != null)
-            {
-               
-            }
-        }
+           
+                    selectedTrack.Title = txtTitle.Text;
+                    selectedTrack.Artist = txtArtist.Text;
+                    selectedTrack.Album = txtAlbum.Text;
+                    selectedTrack.Year = int.Parse(txtYear.Text);
 
+                    DataRepository.UpdateTrack(selectedTrack);
+                    musicListView.SelectedItem = null;
+            Tracks.Clear();
+            LoadData();
+
+        }
         private void RemoveTrackButton_Click(object sender, RoutedEventArgs e)
         {
             var selectedTrack = musicListView.SelectedItem as MusicTrack;
@@ -64,7 +69,6 @@ namespace Lab8
                 Tracks.Remove(selectedTrack);
             }
         }
-
         private void RemoveAllTracksButton_Click(object sender, RoutedEventArgs e)
         {
             DataRepository.RemoveAllTracks();

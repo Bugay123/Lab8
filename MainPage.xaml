@@ -5,11 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="400" Width="550">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="508" Width="573">
 
-    <Grid Background="Gray" Width="500" Height="350">
+    <Grid Background="Gray" Width="500" Height="400" Margin="0,0,0,-12">
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0">
-
             <TextBox x:Name="txtTitle" PlaceholderText="Title" Margin="0,0,0,10"/>
             <TextBox x:Name="txtArtist" PlaceholderText="Artist" Margin="0,0,0,10"/>
             <TextBox x:Name="txtAlbum" PlaceholderText="Album" Margin="0,0,0,10"/>
@@ -18,22 +17,18 @@
             <Button Content="Update Track" Click="UpdateTrackButton_Click"/>
             <Button Content="Remove Track" Click="RemoveTrackButton_Click"/>
             <Button Content="Remove All Tracks" Click="RemoveAllTracksButton_Click"/>
-
-
-
-            <ListView x:Name="musicListView" Margin="20,20,20,20" Width="140">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="{Binding Id}" FontSize="20"/>
-                            <TextBlock Text="{Binding Artist}" FontSize="16"/>
-                            <TextBlock Text="{Binding Album}" FontSize="16"/>
-                            <TextBlock Text="{Binding Year}" FontSize="16"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
         </StackPanel>
+        <ListView x:Name="musicListView" ItemsSource="{x:Bind Tracks, Mode=OneWay}" RenderTransformOrigin="0.5,0.5" Margin="170,15,40,101">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Id}" FontSize="16"/>
+                        <TextBlock Text="{Binding Artist}" FontSize="16"/>
+                        <TextBlock Text="{Binding Album}" FontSize="16"/>
+                        <TextBlock Text="{Binding Year}" FontSize="16"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

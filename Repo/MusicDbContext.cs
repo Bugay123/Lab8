@@ -17,7 +17,7 @@ namespace Lab8.Repo
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=MusicCollection;Username=postgres;Password=postgres");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=MusicCollectionDB;Username=postgres;Password=postgres");
         }
 
         public void ConfigureServices(IServiceCollection services)
